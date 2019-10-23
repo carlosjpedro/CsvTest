@@ -1,3 +1,6 @@
+using Ireckonu.Api.Dto;
+using Ireckonu.Api.Parsers;
+using Ireckonu.Api.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,6 +22,8 @@ namespace Ireckonu.Api
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddControllers();
+      services.AddTransient<ICsvStreamParser<Product>, ProductCsvStreamParser>();
+      services.AddTransient<IWriter<Product>, JsonWriter<Product>>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -5,6 +5,8 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using CsvHelper;
 using Ireckonu.Api.Dto;
+using Ireckonu.Api.Parsers;
+using Ireckonu.Api.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -15,31 +17,26 @@ namespace Ireckonu.Api.Controllers
   [Consumes("text/csv")]
   public class ProductController : ControllerBase
   {
-    [HttpPost]
+    private readonly ICsvStreamParser<Product> _streamParser;
+    private readonly IEnumerable<IWriter<Product>> _writers;
 
+    public ProductController(ICsvStreamParser<Product> streamParser, IEnumerable<IWriter<Product>> writers)
+    {
+      _streamParser = streamParser;
+      _writers = writers;
+    }
+
+    [HttpPost]
     public async Task<IActionResult> PostAsync()
     {
-      using (StreamReader reader = new StreamReader(HttpContext.Request.Body, Encoding.UTF8))
+      var productCollection = await _streamParser.ParseAsync(HttpContext.Request.Body);
+
+      foreach (var writer in _writers)
       {
-        using (var csvReader = new CsvReader(reader))
-        {
-          var productCollection = new List<Product>();
-          while (await csvReader.ReadAsync())
-          {
-            var product = csvReader.GetRecord<Product>();
-            productCollection.Add(product);
-          }
-
-          var json = JsonConvert.SerializeObject(productCollection);
-
-          using (var writer = new StreamWriter("file.json"))
-          {
-            await writer.WriteAsync(json);
-          }
-
-          return Ok(json);
-        }
+        await writer.Write(productCollection);
       }
+
+      return Ok();
     }
 
     [HttpGet]
