@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using Ireckonu.Abstractions;
 using Newtonsoft.Json;
 
-namespace Ireckonu.Api.Repositories
+namespace Ireckonu.IO.Json
 {
-  class JsonWriter<T> : IWriter<T>
+  public class JsonWriter<T> : IWriter<T>
   {
     public async Task Write(IEnumerable<T> entityCollection)
     {

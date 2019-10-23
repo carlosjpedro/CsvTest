@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ireckonu.Api", "Ireckonu.Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ireckonu.Models", "Ireckonu.Models\Ireckonu.Models.csproj", "{6296D82F-33CB-4D4F-88FE-ADBD8FE014C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ireckonu.Abstractions", "Ireckonu.Abstractions\Ireckonu.Abstractions.csproj", "{9B7CEF24-8A02-43EB-90A5-3E8F44DB931E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ireckonu.IO.Json", "Ireckonu.IO.Json\Ireckonu.IO.Json.csproj", "{BA3B2A9B-71AE-45C0-860B-2925C1FB3A28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{6296D82F-33CB-4D4F-88FE-ADBD8FE014C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6296D82F-33CB-4D4F-88FE-ADBD8FE014C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6296D82F-33CB-4D4F-88FE-ADBD8FE014C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B7CEF24-8A02-43EB-90A5-3E8F44DB931E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B7CEF24-8A02-43EB-90A5-3E8F44DB931E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B7CEF24-8A02-43EB-90A5-3E8F44DB931E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B7CEF24-8A02-43EB-90A5-3E8F44DB931E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA3B2A9B-71AE-45C0-860B-2925C1FB3A28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA3B2A9B-71AE-45C0-860B-2925C1FB3A28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA3B2A9B-71AE-45C0-860B-2925C1FB3A28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA3B2A9B-71AE-45C0-860B-2925C1FB3A28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
