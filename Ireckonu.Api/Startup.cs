@@ -1,4 +1,3 @@
-using AutoMapper;
 using Ireckonu.Abstractions;
 using Ireckonu.Api.Parsers;
 using Ireckonu.IO.Json;
@@ -31,12 +30,6 @@ namespace Ireckonu.Api
       services.AddTransient<IWriter<Product>, JsonWriter<Product>>();
       services.AddTransient<IWriter<Product>, ProductSqlWriter>();
       services.AddTransient<IProductMapper, ProductMapper>();
-      var mappingConfig = new MapperConfiguration(mc =>
-      {
-        mc.AddProfile(new IreckonuProfile());
-      });
-      var mapper = mappingConfig.CreateMapper();
-      services.AddSingleton(mapper);
       services.AddDbContext<IreckonuContext>(options =>
         options.UseSqlServer(Configuration.GetConnectionString("IreckonuDatabase")));
     }

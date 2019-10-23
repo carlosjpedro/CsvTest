@@ -14,6 +14,7 @@ namespace Ireckonu.IO.Sql
     public string Q1 { get; set; }
     public string Size { get; set; }
     public PriceEntity Price { get; set; }
+    public ColorEntity Color { get; set; }
   }
 
   public class ColorEntity
