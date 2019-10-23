@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using CsvHelper;
+using Ireckonu.Api.Dto;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace Ireckonu.Api.Controllers
 {
@@ -20,14 +21,25 @@ namespace Ireckonu.Api.Controllers
     {
       using (StreamReader reader = new StreamReader(HttpContext.Request.Body, Encoding.UTF8))
       {
-        var text = await reader.ReadToEndAsync();
-        return Ok(text);
+        using (var csvReader = new CsvReader(reader))
+        {
+          var productCollection = new List<Product>();
+          while (await csvReader.ReadAsync())
+          {
+            var product = csvReader.GetRecord<Product>();
+            productCollection.Add(product);
+          }
+
+          var json = JsonConvert.SerializeObject(productCollection);
+
+          return Ok(json);
+        }
       }
     }
 
     [HttpGet]
     public IActionResult Get()
-    { 
+    {
       return Ok();
     }
   }
