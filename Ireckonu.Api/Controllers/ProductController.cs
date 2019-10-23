@@ -12,7 +12,7 @@ namespace Ireckonu.Api.Controllers
 {
   [ApiController]
   [Route("[controller]")]
-  [Consumes("text/csv", "multipart/form-data")]
+  [Consumes("text/csv")]
   public class ProductController : ControllerBase
   {
     [HttpPost]
@@ -31,6 +31,11 @@ namespace Ireckonu.Api.Controllers
           }
 
           var json = JsonConvert.SerializeObject(productCollection);
+
+          using (var writer = new StreamWriter("file.json"))
+          {
+            await writer.WriteAsync(json);
+          }
 
           return Ok(json);
         }
