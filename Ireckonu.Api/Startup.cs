@@ -27,7 +27,10 @@ namespace Ireckonu.Api
     {
       services.AddControllers();
       services.AddTransient<ICsvStreamParser<Product>, ProductCsvStreamParser>();
-      services.AddTransient<IWriter<Product>, JsonWriter<Product>>();
+      services.AddTransient<IWriter<Product>>(x=>
+        new JsonWriter<Product>(
+          Configuration.GetSection("JsonConfig")["TargetFilePath"],
+          Configuration.GetSection("JsonConfig")["TargetFilePrefix"]));
       services.AddTransient<IWriter<Product>, ProductSqlWriter>();
       services.AddTransient<IProductMapper, ProductMapper>();
       services.AddDbContext<IreckonuContext>(options =>
