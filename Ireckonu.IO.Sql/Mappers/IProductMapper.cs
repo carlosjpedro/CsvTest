@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Ireckonu.Models;
 
-namespace Ireckonu.IO.Sql
+namespace Ireckonu.IO.Sql.Mappers
 {
   public interface IProductMapper
   {

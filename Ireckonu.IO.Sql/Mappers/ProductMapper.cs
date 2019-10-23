@@ -2,7 +2,7 @@
 using AutoMapper;
 using Ireckonu.Models;
 
-namespace Ireckonu.IO.Sql
+namespace Ireckonu.IO.Sql.Mappers
 {
   public class ProductMapper : IProductMapper
   {
