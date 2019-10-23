@@ -8,9 +8,9 @@ namespace Ireckonu.IO.Json
 {
   public class JsonWriter<T> : IWriter<T>
   {
-    public async Task Write(IEnumerable<T> entityCollection)
+    public async Task Write(IEnumerable<T> collection)
     {
-      var json = JsonConvert.SerializeObject(entityCollection);
+      var json = JsonConvert.SerializeObject(collection);
 
       using (var writer = new StreamWriter("file.json"))
       {

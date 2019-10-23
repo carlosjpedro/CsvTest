@@ -5,6 +5,6 @@ namespace Ireckonu.Abstractions
 {
   public interface IWriter<T>
   {
-    Task Write(IEnumerable<T> entityCollection);
+    Task Write(IEnumerable<T> collection);
   }
 }
