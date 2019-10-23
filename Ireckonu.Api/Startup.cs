@@ -1,6 +1,6 @@
-using Ireckonu.Api.Dto;
 using Ireckonu.Api.Parsers;
 using Ireckonu.Api.Repositories;
+using Ireckonu.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

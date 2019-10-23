@@ -6,7 +6,12 @@
 
   <ItemGroup>
     <PackageReference Include="CsvHelper" Version="12.1.2" />
+    <PackageReference Include="EntityFramework" Version="6.3.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ireckonu.Models\Ireckonu.Models.csproj" />
   </ItemGroup>
 
 </Project>

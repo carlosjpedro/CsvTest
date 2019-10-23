@@ -4,9 +4,9 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using CsvHelper;
-using Ireckonu.Api.Dto;
 using Ireckonu.Api.Parsers;
 using Ireckonu.Api.Repositories;
+using Ireckonu.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 

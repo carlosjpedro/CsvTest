@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Ireckonu.Api.Dto
+﻿namespace Ireckonu.Models
 {
   public class Product
   {
